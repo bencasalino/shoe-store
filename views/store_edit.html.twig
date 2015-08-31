@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>{{ store.getName }}</title>
+    </head>
+    <body>
+    <h1>Update the shoe {{ store.getName }}'s information</h1>
+        <form action="/store/{{ store.getId }}" method="post">
+            <input type="hidden" name="_method" value="patch">
+            <label for="name">Update Name:</label>
+            <input type="text" name="name" id="name">
+
+            <label for="location">Update Location:  </label>
+            <input type="text" name="location" id="location">
+
+            <button type="submit">Update now!</button>
+
+        </form>
+    </body>
+</html>

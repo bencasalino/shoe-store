@@ -1,0 +1,43 @@
+<html>
+<!-- should be silimare to brands structure  -->
+    <head>
+        <title>{{store.getName}}</title>
+    </head>
+    <body>
+        <h1>{{store.getName}}</h1>
+        <h4>{{store.getLocation}}</h4>
+
+        {% if brands is not empty %}
+            <h3>Brands sold at this {{store.getName}}:</h3>
+            <ul>
+                {% for brand in brands %}
+                    <li>{{brand.getName}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <h4>Add a Brand for {{store.getName}} to add to the shoe store </h4>
+
+        <form action="/add_brands" method="post">
+            <input id="store_id" type="hidden" name="store_id" value="{{store.getId}}">
+            <label for="brand_id">Select a Brand</label>
+            <select id="brand_id" name="brand_id" type="text">
+                {% for brand in all_brands %}
+                    <option value="{{brand.getId}}">{{brand.getName}}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Add Brand to the store!!!!</button>
+
+        </form>
+
+        <p>
+            <a href="/store/{{store.getId}}/edit">Edit this Store details </a>
+        </p>
+        <p>
+            <a href="/store/{{store.getId}}/delete">Delete please! </a>
+        </p>
+        <p>
+            <a href="/">Home page </a>
+        </p>
+    </body>
+</html>

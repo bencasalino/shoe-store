@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Brands </title>
+    </head>
+    <body>
+        <h1>Add a new shoe Brand </h1>
+        <form action="/brands" method="post">
+            <label for="name">Brand Name here </label>
+            <input type="text" name="name" id="name" required>
+<!-- must be in aloop! -->
+            <button type="sumbit">Submit</button>
+        </form>
+
+
+        {% if brands is not empty %}
+            <h4>Brands</h4>
+            <ul>
+                {% for brand in brands %}
+                    <li>
+                      <a href="/brand/{{brand.getId}}">{{brand.getName}}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <form action='/brands' method='post'>
+            <input name="_method" type="hidden" value="delete">
+            <button type='submit'>Clear all the shoe brands</button>
+        </form>
+        <a href="/">Home page </a>
+    </body>
+</html>

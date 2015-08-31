@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Stores</title>
+    </head>
+    <body>
+        <h1>Add a Store</h1>
+        <form action="/stores" method="post">
+            <label for="name">Store Name here:</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="location">Store Location here:</label>
+            <input type="text" name="location" id="location" required>
+
+            <button type="submit">Submit now! </button>
+
+        </form>
+
+        {% if stores is not empty %}
+            <h3>Here are a list of stores!</h3>
+            <ul>
+                {% for store in stores %}
+                    <ul>
+                        <li><a href="/store/{{store.getID}}">{{store.getName}}</a></li>
+                        <ul><li>{{store.getLocation}}</li></ul>
+                    </ul>
+
+                {% endfor %}
+
+            </ul>
+
+
+        {% else %}
+            <h3>There are currently no stores!! </h3>
+        {% endif %}
+
+
+        <form action='/stores' method='post'>
+            <input name="_method" type="hidden" value="delete">
+            <button type='submit'>Clear all the stores</button>
+        </form>
+        <a href="/">Home page link </a>
+    </body>
+</html>
