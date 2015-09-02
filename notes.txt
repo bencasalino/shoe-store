@@ -1,0 +1,1 @@
+Dianne, im not sure what happened to my initial shoestore_test.sql file I thought it was saved/zipped with everything else from in class on friday but looks like all it just saved was my shoes.sql and not the tests file. I doubt that file is still on the computer at class, but I was able to get all these new tests passing tonight and zipped the sql file in this commit!
